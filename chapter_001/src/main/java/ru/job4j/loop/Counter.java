@@ -10,11 +10,15 @@ public class Counter {
         return sum;
     }
 
-    public static void main(String[] args) {
-        System.out.println(sum(2, 3));
-        System.out.println(sum(3, 8));
-        System.out.println(sum(1, 1));
-        System.out.println(sum(7, 11));
-        System.out.println(sum(2, 72));
+    public static int sumByEven(int start, int finish) {
+        int sum = 0;
+        for (int i = start; i <= finish; i++) {
+            if (i%2 == 0) {
+                sum = sum + i ;
+            }
+        }
+        return sum;
     }
+
+
 }
