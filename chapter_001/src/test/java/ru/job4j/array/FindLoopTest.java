@@ -35,4 +35,35 @@ import static org.junit.Assert.assertThat;
             int expect = -1;
             assertThat(result, is(expect));
         }
+
+        @Test
+        public void whenFind3() {
+            int[] input = new int[] {5, 2, 10, 2, 4};
+            int value = 2;
+            int start = 2;
+            int finish = 4;
+            int result = FindLoop.indexOf(input, value, start, finish);
+            int expect = 3;
+            assertThat(result, is(expect));
+        }
+        @Test
+        public void whenFind6() {
+            int[] input = new int[] {5, 2, 10, 2, 4};
+            int value = 6;
+            int start = 2;
+            int finish = 4;
+            int result = FindLoop.indexOf(input, value, start, finish);
+            int expect = -1;
+            assertThat(result, is(expect));
+        }
+        @Test
+        public void whenFind13() {
+            int[] input = new int[] {5, 2, 10, 2, 4, 5, 7, 13, 42};
+            int value = 13;
+            int start = 2;
+            int finish = 8;
+            int result = FindLoop.indexOf(input, value, start, finish);
+            int expect = 7;
+            assertThat(result, is(expect));
+        }
 }
