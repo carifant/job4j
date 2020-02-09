@@ -23,7 +23,7 @@ import static org.junit.Assert.assertThat;
         }
         @Test
         public void aLotOfNull() {
-            String[] input = {null, "I", "am", null , "going", " to be", null, null, "a" ,  "programmist"};
+            String[] input = {null, "I", "am", null, "going", " to be", null, null, "a",  "programmist"};
             String[] compressed = Defragment.compress(input);
             String[] expected = {"I", "am", "going", " to be", "a", "programmist", null, null, null, null};
             assertThat(compressed, is(expected));

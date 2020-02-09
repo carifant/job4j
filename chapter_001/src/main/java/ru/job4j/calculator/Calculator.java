@@ -52,10 +52,10 @@ public class Calculator {
      */
     public static void main(String[] args) {
 
-        add(1,1);
-        div(4,2);
-        multiply(3,2);
-        subtract(19,9);
+        add(1, 1);
+        div(4, 2);
+        multiply(3, 2);
+        subtract(19, 9);
 
     }
 }

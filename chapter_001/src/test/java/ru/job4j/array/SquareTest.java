@@ -33,7 +33,7 @@ package ru.job4j.array;
         public void whenBound7Then0149162536() {
             int bound = 7;
             int[] rst = Square.calculate(bound);
-            int[] expect = new int[] {0, 1, 4, 9 , 16 , 25, 36};
+            int[] expect = new int[] {0, 1, 4, 9, 16, 25, 36};
             assertThat(rst, is(expect));
         }
 }

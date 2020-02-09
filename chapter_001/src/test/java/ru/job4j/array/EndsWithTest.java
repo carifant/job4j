@@ -18,7 +18,7 @@ public class EndsWithTest {
 
     @Test
     public void whenTrue() {
-        char[] word = {'H', 'e', 'l', 'l', 'o', 'W' , 'o'};
+        char[] word = {'H', 'e', 'l', 'l', 'o', 'W', 'o'};
         char[] post = {'o', 'W', 'o'};
         boolean result = EndsWith.endsWith(word, post);
         assertThat(result, is(true));

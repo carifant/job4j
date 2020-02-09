@@ -23,7 +23,7 @@ public class MinTest {
 
     @Test
     public void when72Min() {
-        assertThat(Min.findMin(new int[]{10, 2, 5, 44, -3, 0 , -72}), is(-72));
+        assertThat(Min.findMin(new int[]{10, 2, 5, 44, -3, 0, -72}), is(-72));
     }
 
     @Test
