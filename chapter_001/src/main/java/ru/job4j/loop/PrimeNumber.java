@@ -7,11 +7,7 @@ public class PrimeNumber {
             if (CheckPrimeNumber.check(i)) {
                 count++;
             }
-
-
         }
         return count;
     }
-
-
 }

@@ -5,7 +5,6 @@ public class Counter {
         int sum = 0;
         for (int i = start; i <= finish; i++) {
             sum = sum + i;
-
         }
         return sum;
     }
@@ -16,9 +15,6 @@ public class Counter {
             if (i % 2 == 0) {
                 sum = sum + i;
             }
-        }
-        return sum;
+        } return sum;
     }
-
-
 }

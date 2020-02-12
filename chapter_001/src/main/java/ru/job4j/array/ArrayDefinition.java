@@ -11,7 +11,6 @@ public class ArrayDefinition {
         names[1] = "Stepan Ryzov";
         names[2] = "Georgy Pobedonosec";
         names[3] = "Svytoslav Igorevich";
-
         System.out.println(names[0]);
         System.out.println(names[1]);
         System.out.println(names[2]);

@@ -26,7 +26,6 @@ public class Converter {
         System.out.println("140 rubles are 2. Test result : " + passed);
         int euro = rubleToEuro(140);
         System.out.println("140 rubles are " + euro + " euro.");
-
         int in2 = 120;
         int expected2 = 2;
         int out2 = rubleToDollar(in2);
@@ -34,7 +33,6 @@ public class Converter {
         System.out.println("120 rubles are 2. Test result : " + passed2);
         int dollar = rubleToDollar(120);
         System.out.println("120 rubles are " + dollar + " dollar.");
-
         int in3 = 10;
         int expected3 = 700;
         int out3 = euroToRuble(in3);
@@ -42,7 +40,6 @@ public class Converter {
         System.out.println("10 euro are 700. Test result : " + passed3);
         int rubles1 = euroToRuble(10);
         System.out.println("10 euro are " + rubles1 + " rubles.");
-
         int in4 = 9;
         int expected4 = 540;
         int out4 = dollarToRuble(in4);
