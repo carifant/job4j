@@ -7,8 +7,8 @@ public class Merge {
     public int[] merge(int[] left, int[] right) {
         int[] rsl = new int[left.length + right.length];
         int index = 0;
-        int numOfLeft = 0;
-        int numOfRight = 0;
+        int iLeft = 0;
+        int iRight = 0;
         if (left.length == 0) {
             for (int i = 0; i < right.length; i++) {
                 rsl[i] = right[i];
@@ -20,27 +20,22 @@ public class Merge {
             }
             return rsl;
         }
-        while (index < rsl.length) {
-            if (left[numOfLeft] < right[numOfRight]) {
-                rsl[index] = left[numOfLeft];
-                numOfLeft++;
-                if (numOfLeft == left.length) {
-                    for (int i = numOfRight; i < right.length; i++) {
-                        rsl[index + 1] = right[i];
-                        index++;
-                    }
-                    break;
-                }
+        while (iLeft + iRight < rsl.length) {
+
+            if (iLeft == left.length) {
+                rsl[index] = right[iRight++];
+                index++;
+                continue;
+            }
+            if (iRight == right.length) {
+                rsl[index] = left[iLeft++];
+                index++;
+                continue;
+            }
+            if (left[iLeft] < right[iRight]) {
+                rsl[index] = left[iLeft++];
             } else {
-                rsl[index] = right[numOfRight];
-                numOfRight++;
-                if (numOfRight == right.length) {
-                    for (int i = numOfLeft; i < left.length; i++) {
-                        rsl[index + 1] = left[i];
-                        index++;
-                        break;
-                    }
-                }
+                rsl[index] = right[iRight++];
             }
             index++;
         }
