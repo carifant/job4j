@@ -9,19 +9,7 @@ public class Merge {
         int index = 0;
         int iLeft = 0;
         int iRight = 0;
-        if (left.length == 0) {
-            for (int i = 0; i < right.length; i++) {
-                rsl[i] = right[i];
-            }
-            return rsl;
-        } else if (right.length == 0) {
-            for (int i = 0; i < left.length; i++) {
-                rsl[i] = left[i];
-            }
-            return rsl;
-        }
         while (iLeft + iRight < rsl.length) {
-
             if (iLeft == left.length) {
                 rsl[index] = right[iRight++];
                 index++;
