@@ -20,7 +20,7 @@ public class Triangle {
 
 
     public double area(Triangle triangle) {
-        double rsl = -1;
+        double rsl = -1.0;
         double p = period(triangle);
         if (this.exist(triangle)) {
             return Math.sqrt(p * (p - triangle.first.distance(triangle.second)) *
@@ -31,7 +31,7 @@ public class Triangle {
     }
 
 
-    public boolean exist(Triangle triangle) {
+    private boolean exist(Triangle triangle) {
         return (triangle.first.distance(triangle.second) + triangle.first.distance(triangle.third) > triangle.second.distance(triangle.third) &&
                 triangle.second.distance(triangle.third) + triangle.first.distance(triangle.third) > triangle.first.distance(triangle.second) &&
                 triangle.first.distance(triangle.second) + triangle.second.distance(triangle.third) > triangle.first.distance(triangle.third));
