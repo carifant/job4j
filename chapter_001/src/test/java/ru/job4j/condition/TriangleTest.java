@@ -13,7 +13,7 @@ public class TriangleTest {
         Point point2 = new Point(4, 2);
         Point point3 = new Point(4, 3);
         Triangle t = new Triangle(point, point2, point3);
-       double result = t.area(t);
+        double result = t.area();
         assertThat(result, is(1.5000000000000007));
     }
 
@@ -23,7 +23,7 @@ public class TriangleTest {
         Point point2 = new Point(1, 2);
         Point point3 = new Point(1, 2);
         Triangle t = new Triangle(point, point2, point3);
-        double result = t.area(t);
+        double result = t.area();
         assertThat(result, is(-1.0));
     }
 }

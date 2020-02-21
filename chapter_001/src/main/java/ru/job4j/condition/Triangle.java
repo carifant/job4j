@@ -12,30 +12,27 @@ public class Triangle {
         this.third = cp;
     }
 
-
-    public double period(Triangle triangle) {
-        return (triangle.first.distance(triangle.second) + triangle.first.distance(triangle.third)
-                + triangle.second.distance(triangle.third)) / 2;
+    public double period(double a, double b, double c) {
+        return (a + b + c) / 2;
     }
 
 
-    public double area(Triangle triangle) {
-        double rsl = -1.0;
-        double p = period(triangle);
-        if (this.exist(triangle)) {
-            return Math.sqrt(p * (p - triangle.first.distance(triangle.second)) *
-                    (p - triangle.first.distance(triangle.third)) * (p - triangle.second.distance(triangle.third)));
+    public double area() {
+        double rsl = -1;
+        double a = first.distance(second);
+        double b = first.distance(third);
+        double c = second.distance(third);
+        double p = period(a, b, c);
+        if (this.exist(a, b, c)) {
 
+            rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
         return rsl;
     }
 
-
-    private boolean exist(Triangle triangle) {
-        return (triangle.first.distance(triangle.second) + triangle.first.distance(triangle.third) > triangle.second.distance(triangle.third) &&
-                triangle.second.distance(triangle.third) + triangle.first.distance(triangle.third) > triangle.first.distance(triangle.second) &&
-                triangle.first.distance(triangle.second) + triangle.second.distance(triangle.third) > triangle.first.distance(triangle.third));
-
-
+    private static boolean exist(double a, double c, double b) {
+        return a + b > c && a + c > b && b + c > a;
     }
+
+
 }
