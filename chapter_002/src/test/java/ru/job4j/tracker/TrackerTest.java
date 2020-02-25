@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.hamcrest.core.IsNull.nullValue;
 
 public class TrackerTest {
     @Test
@@ -86,7 +87,7 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenNotReplace() {
+    public void whenAllReplace() {
         Tracker tracker = new Tracker();
         Item everybody = new Item("Everybody");
         tracker.add(everybody);
@@ -94,5 +95,25 @@ public class TrackerTest {
         Item everWithDesc = new Item("Every");
         tracker.replace(id, everWithDesc);
         assertThat(tracker.findById(id).getName(), is("Every"));
+    }
+
+    @Test
+    public void whenDelete() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id), is(nullValue()));
+    }
+
+    @Test
+    public void whenDeleteAgain() {
+        Tracker tracker = new Tracker();
+        Item tool = new Item("Tool");
+        tracker.add(tool);
+        String id = tool.getId();
+        tracker.delete(id);
+        assertThat(tracker.findById(id), is(nullValue()));
     }
 }
