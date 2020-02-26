@@ -55,17 +55,25 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         int i = indexOf(id);
-        items[i] = item;
-        items[i].setId(id);
-        return true;
+        if (i != -1) {
+            items[i] = item;
+            items[i].setId(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean delete(String id) {
         int i = indexOf(id);
-        System.arraycopy(items, i + 1, items, i, position - i);
-        items[position - 1] = null;
-        position--;
-        return true;
+        if (i != -1) {
+            System.arraycopy(items, i + 1, items, i, position - i);
+            items[position - 1] = null;
+            position--;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
