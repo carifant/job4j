@@ -1,7 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.*;
 
 public class StartUITest {
@@ -26,4 +28,26 @@ public class StartUITest {
         Item expected = new Item("New Item");
         assertThat(created.getName(), is(expected.getName()));
     }
+
+    @Test
+    public void whenReplaceItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("item 2");
+        tracker.add(item);
+        String[] answers = {item.getId(), "new item"};
+        StartUI.replaceItem(new StubInput(answers), tracker);
+        Item replaced = tracker.findById(item.getId());
+        assertThat(replaced.getName(), is("new item"));
     }
+
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("old item");
+        tracker.add(item);
+        String[] answers = {item.getId()};
+        StartUI.deleteItem(new StubInput(answers), tracker);
+        Item deleted = tracker.findById(item.getId());
+        assertThat(deleted, is(nullValue()));
+    }
+}
