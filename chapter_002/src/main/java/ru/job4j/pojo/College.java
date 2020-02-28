@@ -11,8 +11,7 @@ public class College {
         student.setlName("Ivanon");
         student.setnGroup(3);
         student.setEntrance(new Date());
-        System.out.println("Студент: " + student.getfName() + " " + student.getlName() +
-                " зачислен в группу № " + student.getnGroup() + " - " + student.getEntrance());
+        System.out.println("Студент: " + student.getfName() + " " + student.getlName() + " зачислен в группу № " + student.getnGroup() + " - " + student.getEntrance());
     }
 
 }
