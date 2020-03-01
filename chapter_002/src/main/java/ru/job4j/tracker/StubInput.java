@@ -10,6 +10,11 @@ public class StubInput implements Input {
     }
 
     @Override
+    public int askInt(String question, int max) {
+        return askInt(question);
+    }
+
+    @Override
     public String askStr(String question) {
         return answers[position++];
     }
