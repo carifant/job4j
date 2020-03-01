@@ -11,7 +11,7 @@ public class FindByNameAction implements UserAction {
         String name = input.askStr("Введите имя заявки, которую необходимо найти");
         Item[] items = tracker.findByName(name);
         for (Item x : items) {
-            System.out.println("Заявка найдена: " + x.getName() + " - " + x.getId());
+            System.out.println(x.getName() + " " + x.getId());
         }
         return true;
     }
