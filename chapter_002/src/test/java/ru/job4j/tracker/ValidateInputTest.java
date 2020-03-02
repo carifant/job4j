@@ -16,24 +16,10 @@ public class ValidateInputTest {
         ByteArrayOutputStream mem = new ByteArrayOutputStream();
         PrintStream out = System.out;
         System.setOut(new PrintStream(mem));
-        String[] data = {"one", "1"};
-        ValidateInput input = new ValidateStubInput(data);
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[]{"one", "1"}));
         input.askInt("Enter");
-        assertThat(mem.toString(), is(String.format("Please enter validate data again.%n"))
-        );
-        System.setOut(out);
-    }
-
-    @Test
-    public void whenNotInvalidInput() {
-        ByteArrayOutputStream mem = new ByteArrayOutputStream();
-        PrintStream out = System.out;
-        System.setOut(new PrintStream(mem));
-        String[] data = {"one", "2", "two", "3", "four", "4", "five", "5"};
-        ValidateInput input = new ValidateStubInput(data);
-        input.askInt("Select", 5);
-        assertThat(mem.toString(), is(String.format("Please enter validate data again.%n"))
-        );
+        assertThat(mem.toString(), is(String.format("Please enter validate data again.%n")));
         System.setOut(out);
     }
 
