@@ -2,17 +2,18 @@ package ru.job4j.ex;
 
 public class FactRec {
     public static int calc(int n) {
-        int i;
+        int result = 1;
         if (n == 0 || n == 1) {
-            i = 1;
         } else {
-            i = n * n;
+            for (int i = 1; i <= n; i++) {
+                result = result * i;
+            }
         }
-        return i;
+        return result;
     }
 
     public static void main(String[] args) {
-        int rsl = calc(3);
+        int rsl = calc(-3);
         System.out.println(rsl);
     }
 }
