@@ -2,8 +2,11 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import javax.swing.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 import static org.hamcrest.core.Is.is;
@@ -16,8 +19,8 @@ public class StartUITest {
         Item item = new Item("Fix PC");
         Tracker tracker = new Tracker();
         tracker.add(item);
-        Item[] items = tracker.findAll();
-        String created = items[0].getName();
+        List<Item> items = tracker.findAll();
+        String created = items.get(0).getName();
         Item expected = new Item("Fix PC");
         assertThat(created, is(expected.getName()));
     }
@@ -47,22 +50,30 @@ public class StartUITest {
 
     @Test
     public void whenExit() {
-        StubInput input = new StubInput(new String[]{"0"});
+        ArrayList<String> list = new ArrayList<>();
+        list.add("0");
+        StubInput input = new StubInput(list);
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(action);
+        new StartUI().init(input, new Tracker(), actions);
         assertThat(action.isCall(), is(true));
     }
 
     @Test
     public void whenPrtMenu() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
+        List<String> list = new ArrayList<>();
+        list.add("0");
+        List<UserAction> actions = new ArrayList<>();
+        StubAction action = new StubAction();
+        actions.add(action);
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
         StubInput input = new StubInput(
-                new String[]{"0"}
-        );
-        StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[]{action});
+                list);
+
+      new StartUI().init(input, new Tracker(), actions);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. Stub action")

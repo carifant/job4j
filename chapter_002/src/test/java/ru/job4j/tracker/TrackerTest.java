@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -27,23 +29,29 @@ public class TrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        Item[] result = {item, item2, item3, item4};
+        ArrayList<Item> result = new ArrayList<>();
+        result.add(item);
+        result.add(item2);
+        result.add(item3);
+        result.add(item4);
         assertThat(result, is(tracker.findAll()));
     }
 
     @Test
     public void whenNameisRight() {
-        Tracker tracker = new Tracker();
+
         Item item = new Item("test1");
         Item item2 = new Item("test2");
         Item item3 = new Item("test3");
         Item item4 = new Item("test4");
+        Tracker tracker = new Tracker();
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        Item[] result = {item3};
-        assertThat(result, is(tracker.findByName("test3")));
+        ArrayList<Item> list = new ArrayList<>();
+        list.add(item3);
+        assertThat(list, is(tracker.findByName("test3")));
     }
 
     @Test

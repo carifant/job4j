@@ -1,11 +1,14 @@
 package ru.job4j.tracker;
 
 
-public class StubInput implements Input {
-    private String[] answers;
-    private int position = 0;
+import java.util.ArrayList;
+import java.util.List;
 
-    public StubInput(String[] answers) {
+public class StubInput implements Input {
+    private List<String> answers;
+
+
+    public StubInput(List<String> answers) {
         this.answers = answers;
     }
 
@@ -16,12 +19,12 @@ public class StubInput implements Input {
 
     @Override
     public String askStr(String question) {
-        return answers[position++];
+        return answers.get(answers.size() - 1);
     }
 
     @Override
     public int askInt(String question) {
-        return Integer.valueOf(askStr(question));
+        return Integer.parseInt(askStr(question));
     }
 }
 

@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FindAllAction implements UserAction {
     @Override
     public String name() {
@@ -8,7 +11,7 @@ public class FindAllAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        Item[] item = tracker.findAll();
+        List<Item> item = tracker.findAll();
         for (Item x : item) {
             System.out.println(x.getName() + " " + x.getId());
         }
