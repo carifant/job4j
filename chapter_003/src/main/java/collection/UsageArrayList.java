@@ -1,4 +1,4 @@
-package ru.job4j.collection;
+package collection;
 
 import java.util.ArrayList;
 

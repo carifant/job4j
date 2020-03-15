@@ -1,6 +1,5 @@
-package ru.job4j.collection;
+package collection;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;

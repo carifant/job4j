@@ -1,4 +1,4 @@
-package ru.job4j.search;
+package search;
 
 import java.util.LinkedList;
 
@@ -7,11 +7,8 @@ public class PriorityQueue {
 
     public void put(Task task) {
         int index = 0;
-        for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getPriority() >= task.getPriority()) {
-                index = i;
-                break;
-            }
+        for (Task element : tasks) {
+
         }
         this.tasks.add(index, task);
     }
