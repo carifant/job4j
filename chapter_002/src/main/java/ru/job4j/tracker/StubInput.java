@@ -6,6 +6,7 @@ import java.util.List;
 
 public class StubInput implements Input {
     private List<String> answers;
+    private int index;
 
 
     public StubInput(List<String> answers) {
@@ -19,7 +20,7 @@ public class StubInput implements Input {
 
     @Override
     public String askStr(String question) {
-        return answers.get(answers.size() - 1);
+        return answers.get(index++);
     }
 
     @Override
