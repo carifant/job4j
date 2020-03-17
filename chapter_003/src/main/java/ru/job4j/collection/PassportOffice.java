@@ -11,19 +11,13 @@ public class PassportOffice {
         boolean rsl = false;
         if (!citizens.containsKey(citizen.getPassport())) {
             citizens.put(citizen.getPassport(), citizen);
+            rsl = true;
         }
         return rsl;
     }
 
 
     public Citizen get(String passport) {
-        Citizen temp = null;
-        for (Map.Entry<String, Citizen> entry : citizens.entrySet()) {
-            String key = entry.getKey();
-            if (key.equals(passport)) {
-                temp = entry.getValue();
-            }
-        }
-        return temp;
+        return citizens.get(passport);
     }
 }
