@@ -9,19 +9,20 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<Account>());
-        }
+        users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
         User temp = findByPassport(passport);
-        List<Account> list = users.get(temp);
-        if (!list.contains(account)) {
-            list.add(account);
-            users.get(temp).add(account);
-        } else {
-            System.out.println("Данный счёт уже содержится");
+        try {
+            List<Account> list = users.get(temp);
+            if (!list.contains(account)) {
+                users.get(temp).add(account);
+            } else {
+                System.out.println("Данный счёт уже содержится");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Пользователь не найден");
         }
     }
 
@@ -38,13 +39,17 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        List<Account> list = users.get(user);
         Account acc = null;
-        for (Account x : list) {
-            if (x.getRequisite().equals(requisite)) {
-                acc = x;
-                break;
+        try {
+            List<Account> list = users.get(user);
+            for (Account x : list) {
+                if (x.getRequisite().equals(requisite)) {
+                    acc = x;
+                    break;
+                }
             }
+        } catch (NullPointerException e) {
+            System.out.println("Пользователь не найден");
         }
         return acc;
     }
@@ -52,8 +57,6 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String dеstRequisite, double amount) {
         boolean rsl = true;
-        User user = findByPassport(srcPassport);
-        User newUser = findByPassport(destPassport);
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account newAccount = findByRequisite(destPassport, dеstRequisite);
         if (account == null || newAccount == null) {
@@ -64,11 +67,8 @@ public class BankService {
             System.out.println("Недостаточно средств для совершения операции");
             return false;
         }
-        int index = users.get(user).indexOf(account);
-        int index2 = users.get(newUser).indexOf(newAccount);
-        users.get(user).get(index).setBalance(account.getBalance() - amount);
-        users.get(newUser).get(index2).setBalance(newAccount.getBalance() + amount);
-
+        account.setBalance(account.getBalance() - amount);
+        newAccount.setBalance(newAccount.getBalance() + amount);
         return rsl;
     }
 }
