@@ -52,11 +52,10 @@ public class BankService {
         return acc;
     }
 
-    public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String dеstRequisite, double amount) {
+    public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
         boolean rsl = true;
         Account account = findByRequisite(srcPassport, srcRequisite);
-        Account newAccount = findByRequisite(destPassport, dеstRequisite);
+        Account newAccount = findByRequisite(destPassport, destRequisite);
         if (account == null && newAccount == null || account.getBalance() < amount) {
             System.out.println("Данный счёт не найден или недостаточно средств для совершения операции");
             return false;

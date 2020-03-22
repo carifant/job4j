@@ -23,7 +23,7 @@ public class MinDiapasonTest {
     }
     @Test
     public void whenUnderZeroMin() {
-        assertThat(MinDiapason.findMin(new int[] {12, 44, 2, 5, -3, 10, 2, 5, 1}, 0, 6), is(-2));
+        assertThat(MinDiapason.findMin(new int[] {12, 44, 2, 5, -3, 10, 2, 5, 1}, 0, 6), is(-3));
     }
     @Test
     public void whenLastNumberMin() {
