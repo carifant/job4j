@@ -14,15 +14,14 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User temp = findByPassport(passport);
-        try {
-            List<Account> list = users.get(temp);
-            if (!list.contains(account)) {
-                users.get(temp).add(account);
-            } else {
-                System.out.println("Данный счёт уже содержится");
-            }
-        } catch (NullPointerException e) {
-            System.out.println("Пользователь не найден");
+        if (temp == null) {
+            throw new NullPointerException("Пользователь не найден");
+        }
+        List<Account> list = users.get(temp);
+        if (!list.contains(account)) {
+            users.get(temp).add(account);
+        } else {
+            System.out.println("Данный счёт уже содержится");
         }
     }
 
@@ -39,17 +38,16 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
+        if (user == null) {
+            return null;
+        }
         Account acc = null;
-        try {
-            List<Account> list = users.get(user);
-            for (Account x : list) {
-                if (x.getRequisite().equals(requisite)) {
-                    acc = x;
-                    break;
-                }
+        List<Account> list = users.get(user);
+        for (Account x : list) {
+            if (x.getRequisite().equals(requisite)) {
+                acc = x;
+                break;
             }
-        } catch (NullPointerException e) {
-            System.out.println("Пользователь не найден");
         }
         return acc;
     }
@@ -59,12 +57,8 @@ public class BankService {
         boolean rsl = true;
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account newAccount = findByRequisite(destPassport, dеstRequisite);
-        if (account == null || newAccount == null) {
-            System.out.println("Данный счёт не найден");
-            return false;
-        }
-        if (account.getBalance() < amount) {
-            System.out.println("Недостаточно средств для совершения операции");
+        if (account == null && newAccount == null || account.getBalance() < amount) {
+            System.out.println("Данный счёт не найден или недостаточно средств для совершения операции");
             return false;
         }
         account.setBalance(account.getBalance() - amount);
