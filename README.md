@@ -1,5 +1,7 @@
 # job4j
-��������� � �����  task_124176.
-Объединение зафиксированных изменений 
+[![Build Status](https://travis-ci.org/carifant/job4j.svg?branch=master)](https://travis-ci.org/carifant/job4j)
+[![codecov](https://codecov.io/gh/carifant/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/carifant/job4j)
 
-В курсе производилась работа в ветках git.
+
+
+Начальный проект для курса Стажер
