@@ -5,9 +5,18 @@ import java.util.Objects;
 public class Student {
 
     private int score;
+    private String surName;
 
     public Student(int score) {
         this.score = score;
+    }
+
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
     public int getScore() {
