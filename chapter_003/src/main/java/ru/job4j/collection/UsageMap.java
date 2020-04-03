@@ -1,15 +1,13 @@
 package ru.job4j.collection;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class UsageMap {
     public static void main(String[] args) {
-        HashMap<String, String> map = new HashMap<>();
-        map.put("GazpromCeo@mail.ru", "Miller A.A.");
-        map.put("Rosneft@mail.ru", "Stepashin N.T.");
-        for (String key : map.keySet()) {
-            String value = map.get(key);
-            System.out.println(key + " = " + value);
-        }
+        Map<String, String> map = Map.of("GazpromCeo@mail.ru", "Miller A.A.", "Rosneft@mail.ru", "Stepashin N.T.");
+        map.forEach((k, v) -> System.out.println("Key: " + k + " Value: " + v));
     }
 }

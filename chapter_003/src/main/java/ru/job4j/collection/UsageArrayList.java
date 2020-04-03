@@ -1,15 +1,15 @@
 package ru.job4j.collection;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class UsageArrayList {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("Petr");
-        list.add("Ivan");
-        list.add("Stepan");
-        for (String i : list) {
-            System.out.println(i);
-        }
+        List<String> list = List.of("Petr", "Ivan", "Stepan");
+        list.forEach(System.out::println);
+
     }
 }
+
