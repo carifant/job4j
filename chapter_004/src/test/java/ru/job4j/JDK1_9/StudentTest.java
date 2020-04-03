@@ -19,8 +19,8 @@ public class StudentTest {
         students.add(new Student(65));
         students.add(new Student(68));
         students.add(new Student(99));
-        Student st = new Student(0);
-        List<Student> result = st.levelOf(students, 50);
+        School s = new School();
+        List<Student> result = s.levelOf(students, 50);
         List<Student> expected = Arrays.asList(new Student(99), new Student(68),
                 new Student(65), new Student(55));
         assertThat(result, is(expected));
@@ -35,8 +35,8 @@ public class StudentTest {
         students.add(new Student(65));
         students.add(null);
         students.add(null);
-        Student st = new Student(0);
-        List<Student> result = st.levelOf(students, 40);
+        School s = new School();
+        List<Student> result = s.levelOf(students, 40);
         List<Student> expected = Arrays.asList(new Student(65), new Student(55));
         assertThat(result, is(expected));
 

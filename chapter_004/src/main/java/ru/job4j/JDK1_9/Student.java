@@ -45,14 +45,9 @@ public class Student implements Comparable<Student> {
         return Objects.hash(scope);
     }
 
-
     @Override
     public int compareTo(Student o) {
         return Integer.compare(scope, o.scope);
     }
 
-    List<Student> levelOf(List<Student> students, int bound) {
-        return students.stream().flatMap(Stream::ofNullable).sorted(Comparator.reverseOrder()).takeWhile(temp -> temp.getScope() > bound)
-                .collect(Collectors.toList());
-    }
 }
