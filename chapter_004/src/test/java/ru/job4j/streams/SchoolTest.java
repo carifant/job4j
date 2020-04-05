@@ -6,6 +6,7 @@ import ru.job4j.lambda.LambdaFunction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -56,4 +57,19 @@ public class SchoolTest {
         assertThat(result, is(expected));
     }
 
+    @Test
+    public void whenCollectToMap() {
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Sergey"));
+        students.add(new Student("Alex"));
+        students.add(new Student("Sergey"));
+        students.add(new Student("Timofey"));
+        students.add(new Student("Oleg"));
+        students.add(new Student("Oleg"));
+        School school = new School();
+        Map<String, Student> result = school.collectToMap(students);
+        Map<String, Student> expected = Map.of("Sergey", new Student("Sergey"), "Alex", new Student("Alex"),
+                "Timofey", new Student("Timofey"), "Oleg", new Student("Oleg"));
+        assertThat(result, is(expected));
+    }
 }
