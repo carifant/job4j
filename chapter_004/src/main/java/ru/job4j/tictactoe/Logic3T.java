@@ -24,16 +24,17 @@ public class Logic3T {
         }
         return result;
     }
-     public boolean isWin(Predicate<Figure3T> condition){
-        return this.fillBy(condition,0, 0, 1, 0) ||
-                this.fillBy(condition,0, 1, 1, 0) ||
-                this.fillBy(condition,0, 2, 1, 0) ||
-                this.fillBy(condition,0, 0, 0, 1) ||
-                this.fillBy(condition,1, 0, 0, 1) ||
-                this.fillBy(condition,2, 0, 0, 1) ||
-                this.fillBy(condition,0, 0, 1, 1) ||
-                this.fillBy(condition,0, 2, 1, -1);
-     }
+
+    public boolean isWin(Predicate<Figure3T> condition) {
+        return this.fillBy(condition, 0, 0, 1, 0)
+                || this.fillBy(condition, 0, 1, 1, 0)
+                || this.fillBy(condition, 0, 2, 1, 0)
+                || this.fillBy(condition, 0, 0, 0, 1)
+                || this.fillBy(condition, 1, 0, 0, 1)
+                || this.fillBy(condition, 2, 0, 0, 1)
+                || this.fillBy(condition, 0, 0, 1, 1)
+                || this.fillBy(condition, 0, 2, 1, -1);
+    }
 
     public boolean hasGap() {
         return Arrays.stream(table).flatMap(Arrays::stream).anyMatch(x -> !x.hasMarkX() && !x.hasMarkO());

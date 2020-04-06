@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 public class Matrix {
 
 
-    List<Integer> reMakeArraysToList(Integer[][] x){
-       return Arrays.stream(x).flatMap(Arrays::stream).collect(Collectors.toList());
+    List<Integer> reMakeArraysToList(Integer[][] x) {
+        return Arrays.stream(x).flatMap(Arrays::stream).collect(Collectors.toList());
     }
 
 

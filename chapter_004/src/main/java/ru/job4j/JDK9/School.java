@@ -1,4 +1,4 @@
-package ru.job4j.JDK1_9;
+package ru.job4j.jdk9;
 
 import java.util.Comparator;
 import java.util.List;

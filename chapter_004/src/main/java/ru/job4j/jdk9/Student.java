@@ -1,10 +1,6 @@
-package ru.job4j.JDK1_9;
+package ru.job4j.jdk9;
 
-import java.util.Comparator;
-import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Student implements Comparable<Student> {
 
@@ -33,8 +29,12 @@ public class Student implements Comparable<Student> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
         return scope == student.scope;
 
@@ -51,3 +51,4 @@ public class Student implements Comparable<Student> {
     }
 
 }
+
